@@ -18,7 +18,7 @@ import { FilmeService } from '../../core/services/filme-service';
 })
 export class DetalhesComponent implements OnInit {
 
-  private filmeService = null;
+  private filmeService = new FilmeService;
 
   filme: Observable<Filme> = of();
   sessoes: Observable<any[]> = of([]);
