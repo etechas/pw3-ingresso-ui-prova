@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Filme } from '../model/filme';
+import { Sessao } from '../model/sessao';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +19,8 @@ export class FilmeService {
   //  return null;
   //}
 
-  //findSessoesByFilmeId(id: Number): Observable<Sessao[]>{
-  //  return null;
-  //}
+  findByFilmeId(id: Number): Observable<Sessao[]>{
+   return this.http.get<Sessao[]>(`${this.apiUrl}/sessoes/filmeById/${id}`);
+  }
 
 }
