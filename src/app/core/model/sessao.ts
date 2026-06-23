@@ -1,5 +1,6 @@
 
 export interface Sessao {
-  id: number;
-  
+  sala: string;
+  horaSe: string;
+  preco: number;
 }

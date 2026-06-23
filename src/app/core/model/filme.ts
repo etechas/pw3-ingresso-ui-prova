@@ -1,3 +1,5 @@
+import { Sessao } from "./sessao";
+
 export interface Filme {
       id: number;
 	  nome: string;
@@ -11,4 +13,6 @@ export interface Filme {
 	  elenco?: string;
 	  descricao?: string;
 	  avaliacao?: number;
+	  emCartaz?: string;
+	  sessao?: Sessao[];
 }
