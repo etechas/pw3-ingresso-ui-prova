@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Filme } from '../model/filme';
+import { Sessao } from '../model/sessao';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,9 @@ export class FilmeService {
     return this.http.get<Filme[]>(`${this.apiUrl}/em-cartaz`);
   }
   
+  findByFilme(filmeid: number): Observable<Sessao[]>{
+    return this.http.get<Sessao[]>(`http://localhost:8090/sessao/filme/${filmeid}`);
+  } 
   //findById(id: Number): Observable<Filme>{
   //  return null;
   //}

@@ -24,7 +24,16 @@ export class DetalhesComponent implements OnInit {
   sessoes: Observable<any[]> = of([]);
 
   ngOnInit(): void {
-    this.filme = of( {id: 1, nome: 'Toy Story 5', duracao: 105, genero: 'ANIMACAO', classificacao: 'LIVRE', ano: 2026, capa: 'https://ingresso-a.akamaihd.net/prd/img/movie/toy-story-5/709f36bd-9b92-49ab-8046-677758834769.webp', diretor: 'Pete Docter', elenco: 'Tom Hanks, Tim Allen, Annie Potts, Tony Hale', descricao: 'Woody e Buzz embarcam em uma nova aventura que testa os limites da amizade e da imaginação.', avaliacao: 9.2 });
+    this.filme = of( {
+      id: 1, 
+      nome: 'Toy Story 5', 
+      duracao: 105, 
+      genero: 'ANIMACAO', 
+      classificacao: 'LIVRE', 
+      ano: 2026, 
+      capa: 'https://ingresso-a.akamaihd.net/prd/img/movie/toy-story-5/709f36bd-9b92-49ab-8046-677758834769.webp', diretor: 'Pete Docter', 
+      elenco: 'Tom Hanks, Tim Allen, Annie Potts, Tony Hale', descricao: 'Woody e Buzz embarcam em uma nova aventura que testa os limites da amizade e da imaginação.', 
+      avaliacao: 9.2 });
 
     this.sessoes = of ([
       { id: 1, horario: '11:00', sala: 'Sala 1' , preco: 19.99 },
