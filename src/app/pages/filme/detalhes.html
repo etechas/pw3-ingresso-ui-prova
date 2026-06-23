@@ -42,36 +42,34 @@
       </div>
     </div>
 
-    @if (sessoes | async; as listaSessoes) {
-      @if (listaSessoes.length > 0) {
-        <h2>Sessões Disponíveis</h2>
-        <div class="table-container">
-          <table class="data-table">
-            <thead>
+    @if (sessoes.length > 0) {
+      <h2>Sessões Disponíveis</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Sala</th>
+              <th>Horário</th>
+              <th>Preço</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (sessao of sessoes; track sessao.horaSe) {
               <tr>
-                <th>Sala</th>
-                <th>Horário</th>
-                <th>Preço</th>
-                <th>Ações</th>
+                <td>{{ sessao.sala }}</td>
+                <td>{{ sessao.horaSe }}</td>
+                <td class="price">{{ sessao.preco | currency:'BRL':'symbol':'1.2-2' }}</td>
+                <td>
+                  <a mat-raised-button color="primary">
+                    <mat-icon>shopping_cart</mat-icon> Comprar
+                  </a>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              @for (sessao of listaSessoes; track sessao.id) {
-                <tr>
-                  <td> sessao.sala </td>
-                  <td>{{ sessao.horario }}</td>
-                  <td class="price">{{ sessao.preco | currency:'BRL':'symbol':'1.2-2' }}</td>
-                  <td>
-                    <a mat-raised-button color="primary">
-                      <mat-icon>shopping_cart</mat-icon> Comprar
-                    </a>
-                  </td>
-                </tr>
-              }
-            </tbody>
-          </table>
-        </div>
-      }
+            }
+          </tbody>
+        </table>
+      </div>
     }
   </div>
 }
