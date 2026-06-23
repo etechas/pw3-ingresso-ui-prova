@@ -1,25 +1,22 @@
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Filme } from '../model/filme';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class FilmeService {
-  private apiUrl = 'http://localhost:8090/filmes';
-  private http = inject(HttpClient);
 
-  findCartaz(): Observable<Filme[]>{
-    return this.http.get<Filme[]>(`${this.apiUrl}/em-cartaz`);
+  private readonly baseUrl = 'http://localhost:8080/filmes';
+
+  constructor(private http: HttpClient) { }
+
+  findAll(): Observable<Filme[]> {
+    return this.http.get<Filme[]>(this.baseUrl);
   }
-  
-  //findById(id: Number): Observable<Filme>{
-  //  return null;
-  //}
 
-  //findSessoesByFilmeId(id: Number): Observable<Sessao[]>{
-  //  return null;
-  //}
-
+  findEmCartaz(): Observable<Filme[]> {
+    return this.http.get<Filme[]>(`${this.baseUrl}/em-cartaz`);
+  }
 }
